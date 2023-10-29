@@ -1,0 +1,13 @@
+// @import url('./_overrides.scss');
+@import url('./_theme.scss');
+@import url('./_utils.scss');
+@import url('./fonts/definition.scss');
+
+body,
+* {
+  font-family: 'Helvetica', sans-serif;
+}
+
+body {
+  background-color: rgb(var(--v-theme-background));
+}

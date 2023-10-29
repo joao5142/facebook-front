@@ -1,0 +1,157 @@
+<template>
+  <button class="button" :class="styleClasses" @click="!disabled ? $emit('click') : ''">
+    <slot></slot>
+  </button>
+</template>
+
+<script setup lang="ts">
+import { ColorType } from '@/plugins/vuetify'
+
+interface IProps {
+  disabled?: boolean
+  outlined?: boolean
+  full?: boolean
+  isFab?: boolean
+  rounded?: boolean
+  borderColor?: ColorType
+  color?: ColorType
+  background?: ColorType
+  size?: 'xl' | 'lg' | 'md' | 'sm'
+
+  transparent?: boolean
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+  size: 'md',
+  background: 'primary',
+  color: 'white',
+})
+
+const styleClasses = computed(() => {
+  let stringClass = ''
+
+  if (props.full !== undefined && props.full) {
+    stringClass += 'button--full '
+  }
+
+  if (props.disabled && props.disabled === true) {
+    stringClass += 'button--disabled '
+  }
+
+  if (props.color !== undefined) {
+    stringClass += `text-${props.color} `
+  }
+
+  if (props.background !== undefined && !props.outlined) {
+    stringClass += `bg-${props.background} `
+  }
+
+  if (props.outlined !== undefined && props.outlined) {
+    stringClass += 'button--outlined  '
+  }
+
+  if (props.borderColor !== undefined && props.borderColor) {
+    stringClass += `button--border border-${props.borderColor} `
+  }
+
+  if (props.size) {
+    stringClass += `button--size-${props.size} `
+  }
+
+  if (props.isFab !== undefined && props.isFab) {
+    stringClass += 'button--fab '
+  }
+
+  if (props.transparent !== undefined && props.transparent) {
+    stringClass += 'button--transparent '
+  }
+
+  if (props.rounded !== undefined && props.rounded) {
+    stringClass += 'button--rounded '
+  }
+
+  return stringClass
+})
+</script>
+
+<style scoped lang="scss">
+.button {
+  font-weight: 600;
+  text-transform: none;
+
+  transition: all 0.3s linear;
+
+  border-radius: 6px;
+  border-color: rgb(var(--v-border-color));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: max-content;
+
+  &:active {
+    scale: 0.98;
+  }
+
+  &--outlined {
+    border-width: 1px;
+    border-style: solid;
+
+    background: none !important;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    background-color: rgb(var(--v-theme-gray-100)) !important;
+
+    color: rgb(var(--v-theme-text-500)) !important;
+
+    > * {
+      color: rgb(var(--v-theme-text-500)) !important;
+    }
+  }
+
+  &.button--outlined.button--disabled {
+    border-color: rgb(var(--v-theme-gray-100));
+    background-color: transparent !important;
+    color: rgb(var(--v-theme-text-500)) !important;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--size-xl {
+    padding: 1.25rem;
+  }
+  &--size-lg {
+    padding: 1rem;
+  }
+  &--size-md {
+    padding: 0.75rem;
+  }
+  &--size-sm {
+    padding: 0.625rem;
+  }
+
+  &--fab {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  &--border {
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  &--transparent {
+    background: transparent !important;
+  }
+
+  &--rounded {
+    border-radius: 50% !important;
+  }
+}
+</style>
