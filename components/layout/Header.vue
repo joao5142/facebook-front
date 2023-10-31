@@ -10,8 +10,18 @@
       </div>
       <div class="header__search">
         <img :src="FacebookIcon" alt="facebook" />
-        <input type="text" placeholder="Procurar no facebook" />
-        <img class="header__search-magnify" :src="SearchIcon" alt="search" />
+        <input
+          v-model="searchUserText"
+          type="text"
+          placeholder="Procurar no facebook"
+          @keyup.enter="$router.push({ path: `/search/${searchUserText}` })"
+        />
+        <img
+          class="header__search-magnify cursor-pointer"
+          :src="SearchIcon"
+          alt="search"
+          @click.passive="$router.push({ path: `/search/${searchUserText}` })"
+        />
       </div>
       <div class="d-flex justify-end">
         <ul class="header__list">
@@ -93,8 +103,12 @@ import MessengerIcon from '@/assets/img/messenger-icon.svg'
 import NotificationIcon from '@/assets/img/notification-icon.svg'
 
 const { mdAndUp } = useDisplay()
+
 const route = useRoute()
+
 const isMenuOpen = ref<boolean>(false)
+
+const searchUserText = ref<string>()
 
 const isHome = computed(() => {
   return route.fullPath === '/home'

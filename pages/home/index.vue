@@ -53,7 +53,9 @@ const router = useRouter()
 definePageMeta({
   layout: 'app-view-layout',
 })
-
+useHead({
+  title: 'Home',
+})
 function handleVisitUserPerfil(user: IUser) {
   router.push({ path: `/perfil/${user.username}` })
 }

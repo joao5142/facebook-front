@@ -16,8 +16,9 @@
       </header>
 
       <app-text as="p" size="md" class="d-block mt-6">
-        Gente olha que lugarzinho mais aconchegante que eu fui com minhas amigas esse final de
-        semana. Além de lindo, a comida tava deliciosa!
+        Olá, pessoal! Meu nome é João e estou muito feliz em me juntar a vocês aqui no Facebook. Sou
+        apaixonado(a) por TI e jogos e estou ansioso para compartilhar minhas ideias e aprender com
+        todos vocês
       </app-text>
     </div>
 

@@ -54,6 +54,10 @@ definePageMeta({
   layout: 'app-view-layout',
 })
 
+useHead({
+  title: 'Settings',
+})
+
 const userStore = useUserStore()
 
 const { user } = storeToRefs(userStore)

@@ -115,6 +115,9 @@ import SendIcon from '@/assets/img/send.svg'
 definePageMeta({
   layout: 'app-view-layout',
 })
+useHead({
+  title: 'Messenger',
+})
 
 const theme = useTheme()
 

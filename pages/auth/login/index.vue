@@ -24,7 +24,11 @@
 import FacebookLogoImage from '@/assets/img/facebook-logo.svg?url_default'
 
 definePageMeta({
+  name: 'Login',
   layout: 'auth-view-layout',
+})
+useHead({
+  title: 'Login',
 })
 </script>
 

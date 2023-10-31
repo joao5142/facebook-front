@@ -9,11 +9,15 @@
         <slot></slot>
       </div>
     </div>
+    <app-loading v-if="isLoading" />
   </div>
 </template>
 
 <script setup lang="ts">
 import BannerImage from '@/assets/img/capa-login.png'
+
+import { useLoadingStore } from '@/stores/loadingStore'
+const { isLoading } = useLoadingStore()
 </script>
 
 <style scoped lang="scss">

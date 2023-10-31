@@ -51,14 +51,14 @@
         <v-window-item>
           <v-row>
             <v-col v-for="(item, index) in 3" :key="index + 'following'" lg="4" md="6">
-              <card-user :is-me="isMe" class="mt-5" />
+              <app-user-card :is-me="isMe" class="mt-5" />
             </v-col>
           </v-row>
         </v-window-item>
         <v-window-item>
           <v-row>
             <v-col v-for="(item, index) in 3" :key="index + 'followers'" lg="4" md="6">
-              <card-user :is-me="isMe" class="mt-5" />
+              <app-user-card :is-me="isMe" class="mt-5" />
             </v-col>
           </v-row>
         </v-window-item>
@@ -69,7 +69,6 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import CardUser from './components/CardUser.vue'
 
 import MessengerIcon from '@/assets/img/messenger-icon.svg'
 
@@ -77,12 +76,12 @@ import { useUserStore } from '@/stores/userStore'
 
 import { users } from '@/mocks/User'
 
-import { IUser } from '@/types/globals/user'
-
 definePageMeta({
   layout: 'app-view-layout',
 })
-
+useHead({
+  title: 'Perfil',
+})
 const route = useRoute()
 const userStore = useUserStore()
 
