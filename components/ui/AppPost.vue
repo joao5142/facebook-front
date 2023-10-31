@@ -4,8 +4,10 @@
       <header>
         <div class="d-flex gap-20 align-center">
           <app-avatar
+            class="cursor-pointer"
             :size="77"
             src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            @click="$router.push('/perfil/joao512')"
           />
 
           <div class="d-flex flex-column">
@@ -276,6 +278,13 @@ const onClickOutsideHandler = (ev: PointerEvent) => {
         flex: 1;
         justify-content: center;
       }
+    }
+
+    &__image {
+      max-width: 100%;
+      width: 100%;
+      max-height: 500px;
+      height: auto;
     }
   }
 

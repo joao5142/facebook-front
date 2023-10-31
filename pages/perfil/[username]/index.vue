@@ -50,14 +50,14 @@
         </v-window-item>
         <v-window-item>
           <v-row>
-            <v-col v-for="(item, index) in 3" :key="index + 'following'" lg="4" md="6">
+            <v-col v-for="(item, index) in 3" :key="index + 'following'" cols="6" lg="4" md="6">
               <app-user-card :is-me="isMe" class="mt-5" />
             </v-col>
           </v-row>
         </v-window-item>
         <v-window-item>
           <v-row>
-            <v-col v-for="(item, index) in 3" :key="index + 'followers'" lg="4" md="6">
+            <v-col v-for="(item, index) in 3" :key="index + 'followers'" cols="6" lg="4" md="6">
               <app-user-card :is-me="isMe" class="mt-5" />
             </v-col>
           </v-row>

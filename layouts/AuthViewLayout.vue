@@ -37,6 +37,7 @@ const { isLoading } = useLoadingStore()
   }
 
   &__content {
+    padding: 5rem;
     flex: 1;
     width: 100%;
     height: 100%;
@@ -46,6 +47,19 @@ const { isLoading } = useLoadingStore()
 
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 700px) {
+    &__image {
+      display: none;
+    }
+    & {
+      grid-template-columns: 1fr;
+    }
+
+    &__content {
+      padding: 2rem;
+    }
   }
 }
 </style>

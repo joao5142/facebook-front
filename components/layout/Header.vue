@@ -50,6 +50,18 @@
             />
             <app-text as="strong" color="text-900" size="sm">João Paulo</app-text>
           </li>
+
+          <li
+            @click="
+              () => {
+                $router.push('/home')
+                isMenuOpen = false
+              }
+            "
+          >
+            <home-icon />
+          </li>
+
           <li
             @click="
               () => {

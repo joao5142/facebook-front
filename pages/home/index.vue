@@ -111,11 +111,5 @@ function handleVisitUserPerfil(user: IUser) {
       }
     }
   }
-
-  @media (max-width: 400px) {
-    main {
-      margin: 0.5rem;
-    }
-  }
 }
 </style>

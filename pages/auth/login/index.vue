@@ -34,8 +34,6 @@ useHead({
 
 <style scoped lang="scss">
 .login {
-  padding: 5rem;
-
   &__image {
     max-width: 150px;
   }

@@ -4,7 +4,7 @@
       Resultados de busca para : {{ $route.params.username }}
     </app-text>
     <v-row>
-      <v-col v-for="(item, index) in data.results" :key="index + 'user'" lg="4" md="6">
+      <v-col v-for="(item, index) in data.results" :key="index + 'user'" cols="6" lg="4" md="6">
         <app-user-card
           :user="{
             avatar: item?.picture?.large,

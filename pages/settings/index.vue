@@ -21,12 +21,12 @@
 
       <div>
         <v-row v-for="(input, index) in inputs" :key="'input' + index" class="d-flex align-center">
-          <v-col md="4">
-            <app-text class="text-right d-block" as="strong" color="text-900">{{
+          <v-col cols="12" md="4">
+            <app-text class="text-md-right d-block pb-0" as="strong" color="text-900">{{
               input.label
             }}</app-text>
           </v-col>
-          <v-col md="8">
+          <v-col cols="12" md="8" class="pt-0 pb-0 mb-3">
             <app-input
               v-model="input.value"
               class="w-100 main__input"
@@ -95,6 +95,13 @@ const inputs = reactive({
 
   &__input {
     background: rgb(var(--v-theme-dark-600));
+  }
+
+  @media (max-width: 500px) {
+    &__content {
+      padding: 2rem 1rem;
+      margin-inline: 1rem;
+    }
   }
 }
 </style>
