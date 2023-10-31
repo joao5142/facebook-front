@@ -1,14 +1,37 @@
 <template>
   <div class="messenger">
-    <aside>
-      <app-text class="messenger__title-chat" as="strong" color="text-900" size="xl">
-        Bate papo
-      </app-text>
+    <aside class="messenger__user-list">
+      <div class="d-flex justify-space-between align-center">
+        <app-text class="messenger__title-chat" as="strong" color="text-900" size="xl">
+          Bate papo
+        </app-text>
+        <ph-x
+          size="25"
+          class="me-4 messenger__close"
+          color="white"
+          @click="$router.push('/home')"
+        />
+      </div>
 
       <ul class="messenger__conversations">
         <li
           class="messenger__conversations-item"
           :class="{ 'messenger__conversations-item--active': true }"
+        >
+          <app-avatar
+            :size="40"
+            mode="on"
+            src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <div class="d-flex flex-column gap-5">
+            <app-text as="strong" color="text-900" size="lg">João Paulo</app-text>
+            <app-text as="span" color="text-500" size="sm">Não sei se você já viu isso …</app-text>
+          </div>
+        </li>
+
+        <li
+          class="messenger__conversations-item"
+          :class="{ 'messenger__conversations-item--not-read': true }"
         >
           <app-avatar
             :size="40"
@@ -84,7 +107,7 @@
 </template>
 
 <script setup lang="ts">
-import { PhProhibit, PhSpeakerSlash } from '@phosphor-icons/vue'
+import { PhProhibit, PhSpeakerSlash, PhX } from '@phosphor-icons/vue'
 import { useTheme } from 'vuetify'
 import Message from './components/Message.vue'
 import SendIcon from '@/assets/img/send.svg'
@@ -97,7 +120,7 @@ const theme = useTheme()
 
 const { 'blue-600': blue600 } = theme.current.value.colors
 
-const headerHeightUnit = ref()
+const headerHeightUnit = ref<string>('')
 
 onMounted(() => {
   if (document !== undefined) {
@@ -117,6 +140,9 @@ onMounted(() => {
 
   overflow: hidden;
 
+  &__close {
+    display: none;
+  }
   aside {
     background: rgb(var(--v-theme-dark-300));
   }
@@ -230,6 +256,54 @@ onMounted(() => {
       &::placeholder {
         color: rgb(var(--v-theme-dark-600));
       }
+    }
+  }
+
+  @media (max-width: 1400px) {
+    & {
+      grid-template-columns: 300px 1fr 350px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    & {
+      grid-template-columns: 1fr;
+    }
+
+    &__user-list {
+      width: 100%;
+      max-height: 250px;
+
+      position: absolute;
+      top: 0px;
+
+      box-shadow: 0px 10px 20px #00000029;
+    }
+
+    &__close {
+      display: block;
+    }
+    &__user-info {
+      display: none;
+    }
+
+    &__container {
+      padding-top: 150px;
+      max-height: 70vh;
+    }
+
+    &__conversations {
+      max-height: 150px;
+      scroll-snap-align: center;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      display: block;
+
+      height: 100%;
+    }
+
+    &__footer {
+      bottom: 40px;
     }
   }
 }

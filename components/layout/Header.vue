@@ -40,14 +40,32 @@
             />
             <app-text as="strong" color="text-900" size="sm">João Paulo</app-text>
           </li>
-          <li><messenger-icon /></li>
+          <li
+            @click="
+              () => {
+                $router.push('/messenger')
+                isMenuOpen = false
+              }
+            "
+          >
+            <messenger-icon />
+          </li>
           <li
             class="header__list-notification"
             :class="{ 'header__list-notification--having': true }"
           >
             <notification-icon />
           </li>
-          <li><settings-icon /></li>
+          <li
+            @click="
+              () => {
+                $router.push('/settings')
+                isMenuOpen = false
+              }
+            "
+          >
+            <settings-icon />
+          </li>
           <ph-x
             class="header__list-close-icon"
             size="25"
