@@ -1,5 +1,5 @@
 <template>
-  <section>default layout <slot></slot></section>
+  <slot></slot>
 </template>
 
 <script setup></script>

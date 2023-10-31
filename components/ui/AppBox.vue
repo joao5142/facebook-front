@@ -2,7 +2,7 @@
   <div
     aria-label="card"
     class="card"
-    :class="`${computedBackgroundClass} ${computedBorderCardClass} ${computedDisabledClass}`"
+    :class="`${computedBackgroundClass} ${computedShadowClass} ${computedHoverShadowClass}`"
   >
     <slot></slot>
   </div>
@@ -13,26 +13,32 @@ import { ColorType } from '@/plugins/vuetify'
 
 interface IProps {
   background?: ColorType
-  borderColor?: ColorType
-  disabled?: boolean
+  shadow?: boolean
+  hoverEffect?: boolean
 }
 const props = withDefaults(defineProps<IProps>(), {
-  background: 'box',
-  borderColor: 'gray-100',
+  background: 'dark-900',
+  shadow: false,
+  hoverEffect: false,
 })
 
 const computedBackgroundClass = computed(() => {
   return `bg-${props.background}`
 })
 
-const computedBorderCardClass = computed(() => {
-  return `border-${props.borderColor}`
+const computedShadowClass = computed(() => {
+  if (props.shadow !== undefined && props.shadow) {
+    return `card--shadow`
+  }
+
+  return ''
 })
 
-const computedDisabledClass = computed(() => {
-  if (props.disabled !== undefined && props.disabled) {
-    return `card--disabled`
+const computedHoverShadowClass = computed(() => {
+  if (props.hoverEffect !== undefined && props.hoverEffect) {
+    return `card--hover`
   }
+
   return ''
 })
 </script>
@@ -43,15 +49,16 @@ const computedDisabledClass = computed(() => {
 
   width: 100%;
 
-  border-radius: 8px;
+  border-radius: 20px;
 
-  border: 1px solid rgb(var(--v-border-color));
+  border: none;
 
   display: block;
 
-  &--disabled {
-    pointer-events: none;
+  &--shadow,
+  &--hover:hover {
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 15px #00000040;
   }
 }
 </style>
-~/plugins/_vuetify

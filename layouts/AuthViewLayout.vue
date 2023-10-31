@@ -1,19 +1,15 @@
 <template>
-  <v-app>
-    <v-layout :full-height="false">
+  <div>
+    <div class="auth">
       <div>
-        <div class="auth">
-          <div>
-            <img class="auth__image" :src="BannerImage" alt="Banner" />
-          </div>
-
-          <div class="auth__content">
-            <slot></slot>
-          </div>
-        </div>
+        <img class="auth__image" :src="BannerImage" alt="Banner" />
       </div>
-    </v-layout>
-  </v-app>
+
+      <div class="auth__content">
+        <slot></slot>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

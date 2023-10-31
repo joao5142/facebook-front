@@ -5,29 +5,30 @@ import { User } from '@/mocks'
 import { IUser } from '@/types/globals/user'
 
 import api from '@/lib/api'
- 
 
 export const useUserStore = defineStore('user', () => {
   const token = ref()
 
- 
   const userState = reactive<{ user: IUser }>({ user: { ...User } })
 
-  if (typeof window !== 'undefined') {
+  function setToken(tokenValue: string) {
+    localStorage.setItem('token', tokenValue)
+    token.value = tokenValue
+  }
+
+  function initUserStore() {
     try {
       const user: null | IUser = JSON.parse(localStorage.getItem(USER_COLLECTION) || '')
 
       if (user) {
         userState.user = user
+      } else {
+        userState.user = User
       }
     } catch (err) {
-      console.error(err)
+      // console.error(err)
+      userState.user = User
     }
-  }
-
-  function setToken(tokenValue: string) {
-    localStorage.setItem('token', tokenValue)
-    token.value = tokenValue
   }
 
   function setUser(userValue: any) {
@@ -71,8 +72,6 @@ export const useUserStore = defineStore('user', () => {
     // await router.replace('/')
   }
 
- 
-
   return {
     token,
     user: userState.user,
@@ -80,7 +79,6 @@ export const useUserStore = defineStore('user', () => {
     setUser,
     checkToken,
     logoutApp,
-
- 
+    initUserStore,
   }
 })

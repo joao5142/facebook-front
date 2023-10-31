@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { FontWeightType, FontSizesType, ColorType } from '@/plugins/vuetify'
+import { ColorType, FontWeightType, FontSizesType } from '@/plugins/vuetify'
 
 export type TextTagTypes = 'p' | 'span' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h5'
 

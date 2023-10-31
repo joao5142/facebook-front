@@ -19,12 +19,14 @@ interface IProps {
   size?: 'xl' | 'lg' | 'md' | 'sm'
 
   transparent?: boolean
+  glow?: boolean
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   size: 'md',
-  background: 'primary',
-  color: 'white',
+  background: 'blue-600',
+  color: 'text-900',
+  glow: false,
 })
 
 const styleClasses = computed(() => {
@@ -70,18 +72,23 @@ const styleClasses = computed(() => {
     stringClass += 'button--rounded '
   }
 
+  if (props.glow !== undefined && props.glow) {
+    stringClass += 'button--glow '
+  }
+
   return stringClass
 })
 </script>
 
 <style scoped lang="scss">
 .button {
-  font-weight: 600;
+  font-weight: 400;
+  font-size: var(--v-theme-font-size-sm);
   text-transform: none;
 
   transition: all 0.3s linear;
 
-  border-radius: 6px;
+  border-radius: 24px;
   border-color: rgb(var(--v-border-color));
 
   display: flex;
@@ -152,6 +159,10 @@ const styleClasses = computed(() => {
 
   &--rounded {
     border-radius: 50% !important;
+  }
+
+  &--glow {
+    box-shadow: 0px 5px 10px #4589f740;
   }
 }
 </style>

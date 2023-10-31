@@ -1,3 +1,35 @@
 // @forward 'vuetify/settings' with (
 
 // );
+//Tabs
+
+.v-tab .v-btn__overlay {
+  background: none !important;
+}
+
+.v-tab {
+  border-bottom: 8px solid transparent !important;
+
+  border-radius: 2px !important;
+}
+.v-tab .v-btn__content {
+  font-weight: 500;
+  border: none !important;
+}
+
+.v-tab.v-tab--selected {
+  border-bottom: 8px solid rgb(var(--v-theme-blue-600)) !important;
+}
+.v-tab.v-tab--selected .v-btn__content {
+  border: none !important;
+}
+.v-tab--selected .v-tab__slider {
+  opacity: 0 !important;
+}
+.v-tab * {
+  border: none !important;
+  outline: 0 !important;
+}
+.v-tab .v-tab__slider {
+  opacity: 0 !important;
+}

@@ -1,4 +1,4 @@
-import { type NuxtPage } from 'nuxt/schema'
+import { NuxtPage } from 'nuxt/schema'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
@@ -71,6 +71,8 @@ export default defineNuxtConfig({
       })
     },
     '@pinia/nuxt',
+    'nuxt-svgo',
+    '@vueuse/nuxt',
   ],
 
   vite: {

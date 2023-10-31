@@ -2,7 +2,8 @@ export default {
   colors: {
     light: {},
     dark: {
-      'text-100': '#98A9BC',
+      'text-500': '#667c95',
+      'text-700': '#98A9BC',
       'text-900': '#F4F6F8',
 
       background: '#152330',
@@ -19,6 +20,7 @@ export default {
       'white-50': '#fff',
 
       'blue-900': '#1aafff',
+      'blue-700': '#548AEF',
       'blue-600': '#4589f7',
       'blue-300': '#2b6cd6',
 

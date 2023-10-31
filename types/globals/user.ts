@@ -1,8 +1,11 @@
 export interface IUser {
   id: number
-  nome: string
+  name: string
   email: string
-  matricula: string
+  username: string
   telefone: string
   password: string
+  avatar: string
+  perfilPhoto: string
+  isOnline: boolean
 }
