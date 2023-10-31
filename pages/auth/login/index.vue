@@ -1,6 +1,6 @@
 <template>
   <div class="login d-flex flex-column w-100">
-    <img class="login__image" :src="FacebookLogoImage" alt="Logo" />
+    <v-img :laze-src="FacebookLogoImage" class="login__image" :src="FacebookLogoImage" alt="Logo" />
 
     <app-text class="mt-10" as="span" size="lg" color="text-100">Bem vindo</app-text>
     <app-text as="strong" size="xl" color="text-900">Entre na sua conta</app-text>
