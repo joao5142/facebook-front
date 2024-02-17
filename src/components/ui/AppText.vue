@@ -1,64 +1,20 @@
 <template>
-  <p v-if="props.as == 'p'" :class="`text ${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </p>
-
-  <span
-    v-else-if="props.as == 'span'"
-    :class="`text ${customSizeClass} ${customWeightClass} ${colorClass}`"
-  >
-    <slot></slot>
-  </span>
-
-  <strong
-    v-else-if="props.as == 'strong'"
-    :class="`${customSizeClass} ${customWeightClass} ${colorClass}`"
-  >
-    <slot></slot>
-  </strong>
-
-  <h1 v-else-if="props.as == 'h1'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h1>
-
-  <h2 v-else-if="props.as == 'h2'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h2>
-
-  <h3 v-else-if="props.as == 'h3'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h3>
-
-  <h4 v-else-if="props.as == 'h4'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h4>
-
-  <h5 v-else-if="props.as == 'h5'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h5>
-
-  <h6 v-else-if="props.as == 'h6'" :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </h6>
-
-  <p v-else :class="`${customSizeClass} ${customWeightClass} ${colorClass}`">
-    <slot></slot>
-  </p>
+  <component :is="props.as" :class="`text ${computedClasses}`"><slot></slot></component>
 </template>
 
 <script setup lang="ts">
-import { ColorType, FontWeightType, FontSizesType } from '@/plugins/vuetify'
+import { FontWeightTypes, FontSizesTypes, ColorTypes } from '@/plugins/vuetify'
 
 export type TextTagTypes = 'p' | 'span' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h5'
 
 interface IProps {
   as?: TextTagTypes
-  size?: FontSizesType
-  weight?: FontWeightType
-  color?: ColorType
+  size?: FontSizesTypes
+  weight?: FontWeightTypes
+  color?: ColorTypes
 }
 
-const props = defineProps<IProps>()
+const props = withDefaults(defineProps<IProps>(), { as: 'p' })
 
 const customSizeClass = computed(() => {
   let classStr = ''
@@ -119,6 +75,10 @@ const customWeightClass = computed(() => {
 
 const colorClass = computed(() => {
   return `text-${props.color}`
+})
+
+const computedClasses = computed(() => {
+  return `${customSizeClass.value} ${customWeightClass.value} ${colorClass.value}`
 })
 </script>
 
