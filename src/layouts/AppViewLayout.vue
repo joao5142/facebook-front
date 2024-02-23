@@ -11,8 +11,7 @@
 import { useUserStore } from '../stores/userStore'
 import HeaderComponent from '@/components/layout/Header.vue'
 
-import { useLoadingStore } from '@/stores/loadingStore'
-const { isLoading } = useLoadingStore()
+const { isLoading } = useLoadingIndicator()
 
 const userStore = useUserStore()
 

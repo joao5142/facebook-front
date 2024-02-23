@@ -16,8 +16,7 @@
 <script setup lang="ts">
 import BannerImage from '@/assets/img/capa-login.png'
 
-import { useLoadingStore } from '@/stores/loadingStore'
-const { isLoading } = useLoadingStore()
+const { isLoading } = useLoadingIndicator()
 </script>
 
 <style scoped lang="scss">

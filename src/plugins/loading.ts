@@ -1,13 +1,19 @@
-import { useLoadingStore } from '@/stores/loadingStore'
-
 export default defineNuxtPlugin((nuxtApp) => {
-  const { setIsLoading } = useLoadingStore()
+  const { set } = useLoadingIndicator()
 
   nuxtApp.hook('app:created', () => {
-    setIsLoading(true)
+    set(0)
   })
 
   nuxtApp.hook('app:mounted', () => {
-    setIsLoading(false)
+    set(1)
+  })
+
+  nuxtApp.hook('page:start', () => {
+    set(0)
+  })
+
+  nuxtApp.hook('page:finish', () => {
+    set(1)
   })
 })
