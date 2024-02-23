@@ -24,15 +24,15 @@
 </div>
 
 <h2>🖼️ Demonstração da aplicação</h2>
-<img margin-bottom="20px" src="assets/readme/login.png">
+<img margin-bottom="20px" src="/src/assets/readme/login.png">
 <hr/>
-<img margin-bottom="20px" src="assets/readme/home.png">
+<img margin-bottom="20px" src="/src/assets/readme/home.png">
 <hr/>
-<img margin-bottom="20px" src="assets/readme/perfil.png">
+<img margin-bottom="20px" src="/src/assets/readme/perfil.png">
 <hr/>
-<img margin-bottom="20px" src="assets/readme/messenger.png">
+<img margin-bottom="20px" src="/src/assets/readme/messenger.png">
 <hr/>
-<img margin-bottom="20px" src="assets/readme/search.png">
+<img margin-bottom="20px" src="/src/assets/readme/search.png">
 
 <h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://facebook-front-roan.vercel.app/auth/login">Preview na Vercel</a>
 
